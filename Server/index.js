@@ -1,7 +1,7 @@
 import express from "express";
 
 import mongoose from "mongoose";
-// import USerModel from "./models/user";
+import UserModel from "./models/user.js";
 
 import router from "./routes/auth.js"
 const app = express();

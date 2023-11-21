@@ -3,6 +3,8 @@ const router = express.Router();
 import mongoose from "mongoose";
 const User = mongoose.model("User");
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import  {JWT_SECRET}  from "../key.js"
 
 router.post("/signup", (req, res) => {
   const { name, email, password } = req.body;
@@ -48,7 +50,9 @@ router.post("/signin", (req, res) => {
         .compare(password, savedUser.password)
         .then((doMatch) => {
           if (doMatch) {
-            res.json({ message: "successfully signed in" });
+            // res.json({ message: "successfully signed in" });
+            const token = jwt.sign({ _id: savedUser._id }, JWT_SECRET);//create token by using sign method
+            res.json({ token });
           } else {
             res.json({ error: "inavlid email or password" });
           }

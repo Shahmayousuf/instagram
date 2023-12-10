@@ -2,8 +2,9 @@ import express from "express";
 
 import mongoose from "mongoose";
 import UserModel from "./models/user.js";
-
+import PostModel from "./models/post.js";
 import router from "./routes/auth.js"
+import router from "./routes/post.js"
 const app = express();
 app.use(express.json())
 app.use(router)

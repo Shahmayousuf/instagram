@@ -9,9 +9,9 @@ import  {requireLogin}  from "../midddleware/requireLogin.js";
 
 
 
-router.get("/protected",requireLogin,(req,res)=>{
-    res.send("helloo user")
-})
+// router.get("/protected",requireLogin,(req,res)=>{
+//     res.send("helloo user")
+// })
 router.post("/signup", (req, res) => {
   const { name, email, password } = req.body;
   if (!email || !password || !name) {

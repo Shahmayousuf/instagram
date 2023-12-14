@@ -3,7 +3,7 @@ const{ObjectId}=mongoose.Schema.Types
 
 
 const postSchema=new mongoose.Schema({
-    tile:{
+    title:{
         type:String,
         required:true
 
@@ -13,7 +13,7 @@ const postSchema=new mongoose.Schema({
         required:true
     },
     photo:{
-        required:true,
+        type:String,
         default:'No photo posted yet'
     },
     postedBy:{

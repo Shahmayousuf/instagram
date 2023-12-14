@@ -3,11 +3,12 @@ import express from "express";
 import mongoose from "mongoose";
 import UserModel from "./models/user.js";
 import PostModel from "./models/post.js";
-import router from "./routes/auth.js"
-import router from "./routes/post.js"
+import authRouter from "./routes/auth.js"
+import postRouter from "./routes/post.js"
 const app = express();
 app.use(express.json())
-app.use(router)
+app.use(authRouter)
+app.use(postRouter)
 
 
 const connectdb = async () => {
@@ -26,3 +27,9 @@ const PORT = 3000;
 app.listen(PORT, () => {
   console.log("server is running on", PORT);
 });
+
+
+
+
+
+

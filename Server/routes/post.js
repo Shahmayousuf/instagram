@@ -1,10 +1,17 @@
 import express from "express";
-const router = express.Router();
 import mongoose from "mongoose";
+// import { requireLogin } from "../midddleware/requireLogin";
 
+const router = express.Router();
 
+router.post("/createpost",(req, res) => {
+  const { title, body } = req.body;
+  if (!title || !body) {
+    return res.status(400).json({ error: "Please add all the fields" });
+  }
+  console.log(req.User);
+  res.send("okey");
 
+});
 
-
-router.post
 export default router;

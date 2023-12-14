@@ -63,12 +63,14 @@ router.post("/signin", (req, res) => {
             res.json({ error: "inavlid email or password" });
           }
         })
-        .cath((err) => {
+        .catch((err) => {
           console.log(err);
+          res.status(500).json({ error: "An error occurred while comparing passwords" });
         });
     })
     .catch((err) => {
       console.log(err);
+      res.status(500).json({ error: "An error occurred while checking the user" });
     });
 });
 export default router;
